@@ -6,7 +6,7 @@ class User_DA:
         pass
 
 
-    def create_user(user:Usuario):
+    def create_user(self,user:Usuario):
         # Crear un usuario
         userDB = User(
             nombre=user.nombre,
@@ -24,7 +24,7 @@ class User_DA:
             print(e)
             return None
     
-    def get_user_by_id(id:int):
+    def get_user_by_id(self,id:int):
         # Obtener un usuario por ID
         try:
             user = db.query(User).get(id)
@@ -32,7 +32,7 @@ class User_DA:
         except Exception as e:
             return None
         
-    def get_user_by_email(email:str):
+    def get_user_by_email(self,email:str):
         # Obtener un usuario por email
         try:
             user = db.query(User).filter(User.email == email).first()
@@ -48,7 +48,7 @@ class User_DA:
         except Exception as e:
             return None
     
-    def update_user(user:Usuario):
+    def update_user(self,user:Usuario):
         # Actualizar un usuario
         try:
             userDB = db.query(User).get(user.id)
@@ -64,19 +64,19 @@ class User_DA:
             return None
 
     
-    def delete_user(id:int):
+    def delete_user(self,id:int):
         # Eliminar un usuario
         user = db.query(User).get(id)
         db.delete(user)
         db.commit()
         return None
     
-    def get_user_profiles(id_usuario:int):
+    def get_user_profiles(self,id_usuario:int):
         # Obtener todos los perfiles asociados a un usuario
         user = db.query(User).get(id_usuario)
         return user.perfiles
     
-    def get_user_subscriptions(id_usuario:int):
+    def get_user_subscriptions(self,id_usuario:int):
         # Obtener todas las suscripciones asociadas a un usuario
         user = db.query(User).get(id_usuario)
         return user.subscriptions
