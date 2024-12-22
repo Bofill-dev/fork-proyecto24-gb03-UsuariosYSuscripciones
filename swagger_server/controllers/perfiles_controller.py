@@ -59,10 +59,10 @@ def usuarios_perfiles_post(body):  # noqa: E501
     """
     if connexion.request.is_json:
         body = Perfil.from_dict(connexion.request.get_json())  # noqa: E501
-        nuevoPerfil = Profile_DA.create_profile(body)
-        if nuevoPerfil is None:
+        nuevo_perfil = Profile_DA.create_profile(body)
+        if nuevo_perfil is None:
             return "Error al crear el perfil", 400
-    return nuevoPerfil.to_dict(), 201
+    return nuevo_perfil.to_dict(), 201
 
 def usuarios_perfiles_put(body):  # noqa: E501
     """Actualizar un perfil dada una ID
