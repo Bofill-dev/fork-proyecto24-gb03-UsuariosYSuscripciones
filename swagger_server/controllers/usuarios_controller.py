@@ -120,6 +120,6 @@ def usuarios_put(body):  # noqa: E501
     """
     if connexion.request.is_json:
         body = Usuario.from_dict(connexion.request.get_json())  # noqa: E501
-        user = User_DA.update_user(body)
+        User_DA.update_user(body)
     return None
 
