@@ -5,7 +5,7 @@ class Plan_DA:
     def __init__(self) -> None:
         pass
 
-    def create_plan(plan:Plan):
+    def create_plan(self, plan:Plan):
         # Crear un plan
         planDB = PlanDB(
             nombre_plan=plan.nombre_plan,
@@ -19,6 +19,7 @@ class Plan_DA:
             db.rollback()
             print(e)
             return None
+        
     def get_plan_by_id(id_p: int):
         try:
             
