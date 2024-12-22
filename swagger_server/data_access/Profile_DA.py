@@ -3,6 +3,8 @@ from swagger_server.models.perfil import Perfil
 
 class Profile_DA:
     def __init__(self) -> None:
+        # Constructor
+        # Vacío ya que no se necesita inicializar nada
         pass
     
     def create_profile(profile:Perfil):
